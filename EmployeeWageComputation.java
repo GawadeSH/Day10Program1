@@ -40,11 +40,25 @@ public class EmployeeWageComputation
             System.out.println("Employee Wage is :-0");
         }
     }
+    void switchStatement()
+    {
+        switch (Attend2)
+        {
+            case 1:
+                EmpHrs = 8;
+                break;
+            case 0:
+                EmpHrs = 4;
+                break;
+        }
+        System.out.println(w = EmpRatePerHr * EmpHrs);
+    }
     public static void main(String[] args)
     {
         System.out.println("Welcome to Employee Wage Computation Program");
         EmployeeWageComputation e = new EmployeeWageComputation();
         e.attendance();
         e.wage();
+        e.switchStatement();
     }
 }
