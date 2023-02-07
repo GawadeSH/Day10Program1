@@ -72,7 +72,28 @@ public class EmployeeWageComputation
             totalWage=totalWage+w;
         }
         System.out.println("Total wage of month:-"+totalWage);
-
+    }
+    void monthlySalary2()
+    {
+        int  TotalEmpHrs=0;
+        int totalWorkingDays=0;
+        int  totalWage=0;
+        while(TotalEmpHrs < 100 && totalWorkingDays < 20)
+        {
+            totalWorkingDays++;
+            Random r = new Random();
+            Attend2 = r.nextInt(2);
+            switch (Attend2)
+            {
+                case 1:
+                    EmpHrs = 8;
+                case 0:
+                    EmpHrs = 4;
+            }
+            TotalEmpHrs=TotalEmpHrs+EmpHrs;
+            totalWage=totalWage+w;
+        }
+        System.out.println("manthly salary is:-"+totalWage);
     }
     public static void main(String[] args)
     {
@@ -82,5 +103,6 @@ public class EmployeeWageComputation
         e.wage();
         e.switchStatement();
         e.monthlyWage();
+        e.monthlySalary2();
     }
 }
