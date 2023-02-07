@@ -53,6 +53,27 @@ public class EmployeeWageComputation
         }
         System.out.println(w = EmpRatePerHr * EmpHrs);
     }
+    int totalWorkingDays=20,totalWage=0;
+    void monthlyWage()
+    {
+        Random r = new Random();
+        for(int i=1;i<=totalWorkingDays;i++)
+        {
+            Attend2 = r.nextInt(2);
+            switch (Attend2) {
+                case 1:
+                    EmpHrs = 8;
+                    break;
+                case 0:
+                    EmpHrs = 4;
+                    break;
+            }
+            w = EmpRatePerHr * EmpHrs;
+            totalWage=totalWage+w;
+        }
+        System.out.println("Total wage of month:-"+totalWage);
+
+    }
     public static void main(String[] args)
     {
         System.out.println("Welcome to Employee Wage Computation Program");
@@ -60,5 +81,6 @@ public class EmployeeWageComputation
         e.attendance();
         e.wage();
         e.switchStatement();
+        e.monthlyWage();
     }
 }
