@@ -3,7 +3,8 @@ package emp.com;
 import java.util.Random;
 public class EmployeeWageComputation
 {
-    int Attend1,Attend2;
+     int Attend1,Attend2;
+     static int Attend3;
     int EmpRatePerHr,EmpHrs,w;
     EmployeeWageComputation()
     {
@@ -91,12 +92,39 @@ public class EmployeeWageComputation
                     EmpHrs = 4;
             }
             TotalEmpHrs=TotalEmpHrs+EmpHrs;
-            totalWage=totalWage+w;
+            totalWage=TotalEmpHrs*EmpRatePerHr;
+
         }
         System.out.println("manthly salary is:-"+totalWage);
+
     }
-    public static void main(String[] args)
+
+    void ComputeEmpWage(String company,int EmpRatePerHr,int noOfWorkingDays,int maxHrsPerMonth)
     {
+        int TotalEmpHrs=0,totalWorkingDays=0,totalWage=0;
+        while(TotalEmpHrs<=maxHrsPerMonth &&totalWorkingDays<noOfWorkingDays)
+        {
+            totalWorkingDays++;
+
+            Random r = new Random();
+            Attend3= r.nextInt(2);
+            switch(Attend3)
+            {
+                case 1:
+                    EmpHrs = 8;
+                case 0:
+                    EmpHrs = 4;
+                    break;
+            }
+            TotalEmpHrs=TotalEmpHrs+EmpHrs;
+            System.out.println("days"+totalWorkingDays+"hours"+TotalEmpHrs);
+        }
+        totalWage=TotalEmpHrs*EmpRatePerHr;
+        System.out.println(" wage for "+company+" is :-"+totalWage);
+
+    }
+        public static void main(String[] args)
+        {
         System.out.println("Welcome to Employee Wage Computation Program");
         EmployeeWageComputation e = new EmployeeWageComputation();
         e.attendance();
@@ -104,5 +132,7 @@ public class EmployeeWageComputation
         e.switchStatement();
         e.monthlyWage();
         e.monthlySalary2();
+        e.ComputeEmpWage("Dmart",20,2,10);
+        e.ComputeEmpWage("Tata",25,8,15);
     }
 }
